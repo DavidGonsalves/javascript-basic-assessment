@@ -139,35 +139,35 @@ var doubleTheFun = function (param) {
 // return the value from the object that corresponds to the property
 
 var getValueOfProperty = function (obj, nameProp) {
-	return obj.nameProp;
+	return obj[nameProp];
 }
 
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
 
-var makeChatMessage = function (message1, author1) {
+var makeChatMessage = function (message, author) {
 	return {
-		message: message1,
-		author: author1,
-		date: new Date()
+		message: message,
+		author: author,
+		timestamp: new Date()
 	}
 }
 
 // #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy 
 // and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
 
-var coderTest = function (obj){
-	if (obj.name === 'Jeremy'){
-		obj.lovesCode = '10'
+var coderTest= function (person) {
+	if (person.name === 'Jeremy') {
+		person['lovesCode'] = 10;
 	}
-	if (obj.name === 'Brack'){
-		obj.lovesCode = '0'
-	} 
+	else if (person.name === 'Brack') {
+		person['lovesCode'] = 0;
+	}
 	else {
-		obj.lovesCode = '5'
+		person['lovesCode'] = 5;
 	}
-};
+}
 
 // #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), in that order. 
 //Using the following to return the correct values
@@ -180,25 +180,19 @@ var coderTest = function (obj){
     Otherwise - return "I love outside"
 */
 
-var outside = function (temp, humidity, cloudiness) {
-	if (temp > 80 && humidity > 40){
-		return "I'm all sweat"
-	}
-	if (temp < 40 && cloudiness > 60){
-		return "I have icecicles"
-	}
-	if (temp > 80 && humidity < 40 && cloudiness < 20){
-		return "I'm literally in the desert"
-	}
-	if (temp > 80 || humidity > 50 || cloudiness < 50){
-		return "Hmm, propbably not"
-	}
-	else {
-		return "I love outside"
-	}
-};
-
-
+var outside = function (temperature, humidity, cloudiness) {
+	if (temperature > 80 && humidity > 40) {
+		return "I'm all sweat";
+	} else if (temperature < 40 && cloudiness > 60) {
+		return "I have icecicles";
+	} else if (temperature > 80 && humidity < 40 && cloudiness < 20) {
+		return "I'm literally in the desert";
+	} else if (temperature > 80 || humidity > 50 || cloudiness > 50) {
+		return "Hmm, probably not";
+   } else {
+	   return "I love outside";
+   }
+   }
 
 
 // #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
